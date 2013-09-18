@@ -1,0 +1,17 @@
+{
+  "main": "index.html",
+  "name": "Puzzle",
+  "version": "0.1",
+  "window": {
+    "title": "Puzzle",
+    "toolbar": false,
+    "frame": false,
+    "width": 450,
+    "height": 332,
+    "position": "center",
+    "resizable": false,
+    "icon": "img/puzzle.png",
+    "show": false
+  },
+  "chromium-args": "--enable-threaded-compositing"
+}

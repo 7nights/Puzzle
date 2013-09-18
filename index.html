@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Puzzle</title>
+  <link rel="stylesheet" href="css/topcoat-desktop-dark.css" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="dark" ng-controller="MainCtrl">
+  <section id="window-ctrl" style="-webkit-app-region: drag">
+    <img class="loading-animation loading" src="img/loading.png" ng-show="loading" /><strong>Puzzle</strong>
+  </section>
+  <section id="alert-window" ng-controller="AlertCtrl">
+    <div class="wrap">
+      <div ng-bind-template="{{alertMessage}}"></div>
+      <button class="topcoat-button--cta">好的</button>
+    </div>
+  </section>
+  <section id="window-btns" style="-webkit-app-region: no-drag">
+    <button class="topcoat-button--cta window-btn-close">X</button>
+  </section>
+  <section id="action-bar" ng-controller="ActionBarCtrl">
+    <div class="output-wrap" title="{{output + getSep() + $parent.templateName || 'template'}}">
+      <button ng-click="selectDirectory()" class="topcoat-button--large">选择输出目录</button>
+      <div class="topcoat-text-input">
+        <span class="directory" ng-bind-template="{{output}}"></span>
+        <span ng-bind-template="{{getSep()}}"></span>
+        <input placeholder="输出模板名称" ng-model="$parent.templateName" type="text" />
+      </div>
+      <!-- <div ng-bind-template="{{output}}"></div> -->
+    </div>
+    
+  </section>
+
+  <section class="container">
+    <div id="log" class="custom-scrollbar topcoat-textarea--large" ng-controller="LogCtrl">
+      <div ng-repeat="log in logs" ng-bind-template="{{log}}"></div>
+    </div>
+  </section>
+
+  <input id="directory-selector" type="file" class="no-visible" nwdirectory />
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>
